@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tekne Tanım</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+<body>
+     <div id="wrapper">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <div class="container">
+
+          <!-- Outer Row -->
+          <div class="row justify-content-center">
+      
+            <div class="col-xl-10 col-lg-12 col-md-9">
+              <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                  <!-- Nested Row within Card Body -->
+                  <div class="row">
+                   
+                    <div class="col-lg-9">
+                        <div class="p-5">
+                          <div>
+                            <h1 class="h4 text-gray-900 mb-4">Tekne Tanım Ekranı</h1>
+                          </div>
+                          <form action="" method="POST" id="boatRegister">
+                        
+                            <div class="form-group">
+                                <label for="licenceNo"><b>Ruhsat No:</b></label>
+                              <input type="text" id:"licenceNo" name="licenceNo" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="plate"><b>Plaka:</b></label>
+                                <input type="text" id="plate" name="plate" class="form-control form-control-user">
+                              </div>
+                              <div class="form-group">
+                                <label for="boatName"><b>Tekne Adı:</b></label>
+                                <input type="text" id="boatName" name="boatName" class="form-control form-control-user">
+                              </div>
+                              <div class="form-group">
+                                <label for="portNameFromDb"><b>Liman Seçiniz</b></label>
+                                <select id="portNameFromDb" name="portNameFromDb" class="form-control form-control-user">
+                                  {{#each portData}}
+                                  <option value="portDataValue">{{province}}-{{portName}}</option>
+                                  {{/each}}
+
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="bindingNo"><b>Bağlanma No:</b></label>
+                                <input type="text" id="bindingNo" name="bindingNo" class="form-control form-control-user">
+                              </div>
+                              <div class="form-group">
+                                <label for="boatTypeFromDb"><b>Tekne Cinsi</b></label>
+                                <select id="boatTypeFromDb" name="boatTypeFromDb" class="form-control form-control-user">
+                                    {{#each boatTypeData}}
+                                  <option value="boatTypeValue">{{description}}</option>
+                                  {{/each}}
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="boatSize"><b>Boy-En:</b></label>
+                                <input type="text" id="boatSize" name="boatSize" class="form-control form-control-user">
+                              </div>
+                              <div class="form-group">
+                                <label for="boatEngineFromDb"><b>Tekne Motoru</b></label>
+                                <select id="boatEngineFromDb" name="boatEngineFromDb" class="form-control form-control-user">
+                                  {{#each boatEngineData}}
+                                   <option value="boatEngineTypeValue">{{brand}}-{{model}}</option>
+                                  {{/each}}
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="boatHpFromDb"><b> Motor Beygir Gücü(hp)</b></label>
+                                <select id="boatHpFromDb" name="boatHpFromDb" class="form-control form-control-user" >
+                                  {{#each boatEngineData}}
+                                  <option value="boatHpValue">{{hp}}</option>
+                                  {{/each}}
+                                  </select>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="ownerName"><b>Donatan Ad:</b></label>
+                                <input type="text" id="ownerName" name="ownerName" class="form-control form-control-user" >
+                              </div>
+                              <div class="form-group">
+                                <label for="ownerSurname"><b>Donatan Soyad:</b></label>
+                                <input type="text" id="ownerSurname" name="ownerSurname" class="form-control form-control-user" >
+                              </div>
+                              <div class="form-group">
+                                <label for="ownerBirth"><b>Donatan Doğum Tarihi:</b></label>
+                                <input type="date" id="ownerBirth" name="ownerBirth" class="form-control form-control-user" >
+                              </div>
+                              <div class="form-group">
+                                <label for="ownerID"><b>Donatan TC:</b></label>
+                                <input type="text" id="ownerID" name="ownerID" class="form-control form-control-user" >
+                              </div>
+                              <div class="form-group">
+                                <label for="ownerAddress"><b>Donatan Adresi:</b></label>
+                                <input type="text" id="ownerAddress" name="ownerAddress" class="form-control form-control-user" >
+                              </div>
+                              <div class="form-group">
+                                <label for="ownerPhoneNum"><b>Donatan Telefonu:</b></label>
+                                <input type="text" id="ownerPhoneNum" name="ownerPhoneNum" class="form-control form-control-user" >
+                              </div>
+                              <div class="form-group">
+                                <label for="groundInspectionDate"><b>Muayene Tarihi(Kara):</b></label>
+                                <input type="date" id="groundInspectionDate" name="groundInspectionDate" class="form-control form-control-user">
+                              </div>
+                              <div class="form-group">
+                                <label for="inspectionAttendant"><b>Muayene Personeli:</b></label>
+                                <input type="text" id="inspectionAttendant" name="inspectionAttendant" class="form-control form-control-user">
+                              </div>
+                              <div class="form-group">
+                                <label for="suitableForSea"><b> Denize Elverişli mi:</b></label>
+                                <select id="suitableForSea" name="suitableForSea" class="form-control form-control-user">
+                                    <option value="user">Evet</option>
+                                    <option value="user">Hayır</option>
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="seaInspectionDate"><b>Muayene Tarihi(Su Üstü):</b></label>
+                                <input type="date" id="seaInspectionDate" name="seaInspectionDate" class="form-control form-control-user">
+                              </div>
+                              <div class="form-group">
+                                <label for="blueCard"><b> Mavi Kart:</b></label>
+                                <select id="blueCard" name="blueCard" class="form-control form-control-user">
+                                    <option value="user">Evet</option>
+                                    <option value="user">Hayır</option>
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="inspectionValidityDate"><b>Muayene Geçerlilik Tarihi:</b></label>
+                                <input type="date" id="inspectionValidityDate" name="inspectionValidityDate" class="form-control form-control-user">
+                              </div>
+                        
+                            <div class="form-group">
+                            
+                            </div>
+                             <button type="submit" class="btn btn-primary btn-user btn-block">Kaydet</button>
+                            <hr>
+                          </form>  
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Main Content -->
+    </div>
+    <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Page Wrapper -->
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  <div style="overflow-x: scroll;">
+    <table id="personel" border="1" cellpadding="5" cellspacing="5">
+        <thead>
+            
+            <th>RUHSAT NO</th>
+            <th>PLAKA</th>
+            <th>TEKNE ADI</th>
+            <th>LİMAN ADI</th>
+            <th>TEKNE CİNSİ</th>
+            <th>MUAYENE TARİHİ(KARA)</th>
+            <th>MUAYENE TARİHİ(SU ÜSTÜ)</th>
+            <th>MAVİ KART</th>
+            <th>MUAYENE GEÇERLİLİK TARİHİ</th>
+            <th>DÜZENLEME BUTONU</th>
+            <th>SİL BUTONU</th>
+        </thead>
+        <tbody>
+            {{#each boatRegData}}
+            <tr>
+               
+                <td>{{licenceNo}}</td>
+                <td>{{plate}}</td>
+                <td>{{boatName}}</td>
+                <td>{{portNameFromDb}}</td>
+                <td>{{boatTypeFromDb}}</td>
+                <td>{{generateDate groundInspectionDate 'L'}}</td>
+                <td>{{generateDate seaInspectionDate "L"}}</td>
+                <td>{{blueCard}}</td>
+                <td>{{generateDate inspectionValidityDate "L"}}</td>
+                <td>
+                    <a href="/boatRegRoutes/boats/edit/{{_id}}" class="btn btn-primary btn-user btn-block">Düzenle</a>
+                </td>
+                <td>
+                    <form action="/boatRegRoutes/boats/{{_id}}?_method=DELETE" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-primary btn-user btn-block">Sil</button>
+                    </form>
+                </td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+  </div>
+     <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+</body>
+</html>

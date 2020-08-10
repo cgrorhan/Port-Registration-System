@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tekne Cinsi</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link rel = "stylesheet" type = "text/css" href ="/css/userRegStyle.css" >
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+<body id="page-top">
+    <!-- Page Wrapper -->
+  <div id="wrapper">
+
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+      
+        <div class="container">
+
+          <!-- Outer Row -->
+          <div class="row justify-content-center">
+      
+            <div class="col-xl-10 col-lg-12 col-md-9">
+      
+              <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                  <!-- Nested Row within Card Body -->
+                  <div class="row">
+                   
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                          <div>
+                            <h1 class="h4 text-gray-900 mb-4">Tekne Cinsi Kayıt Ekranı</h1>
+                          </div>
+                          <form method="POST" id="boatTypeDef">
+                            <div class="form-group">
+                              <label for="activeOrNot"><b>Tekne Aktif Durumda mı?</b></label>
+                              <select id="activeOrNot" name="activeOrNot" class="form-control form-control-user">
+                                  <option value="active">Aktif</option>
+                                  <option value="passive">Pasif</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="description"><b>Tekne Tanımı</b></label>
+                              <input type="text" id="description" name="description" class="form-control form-control-user">
+                            </div>
+                        
+                            <div class="form-group">
+                            
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">Kaydet</button>
+
+                            <hr>
+                          </form>
+                            <table id="personel" border="1" cellpadding="5" cellspacing="5">
+                                <thead>
+                                    <th>ID</th>
+                                    <th>AKTİF/PASİF</th>
+                                    <th>TEKNE TANIMI</th>
+                                    <th></th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    {{#each boatDataFromDb}}
+                                    <tr>
+                                        <td>{{_id}}</td>
+                                        <td>{{activeOrNot}}</td>
+                                        <td>{{description}}</td>
+                                        <td>
+                                            <a href="/boatTypeDefRoutes/boats/edit/{{_id}} "class="btn btn-primary btn-user btn-block" >Düzenle</a>
+                                        </td>
+                                        <td>
+                                        <form action="/boatTypeDefRoutes/boats/{{_id}}?_method=DELETE" method="POST">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit"   class="btn btn-primary btn-user btn-block" >Sil</button>
+                                        </form>
+
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                            </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+      
+          </div>
+      
+        </div>
+      </div>
+      <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+ 
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+</body>
+</html>

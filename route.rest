@@ -1,0 +1,1 @@
+GET http://localhost:3000/restApi/user/deneme@gmail.com/123

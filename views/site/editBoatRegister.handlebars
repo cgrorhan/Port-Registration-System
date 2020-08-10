@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tekne Kayıt Düzenleme</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+        <div class="container">
+
+          <!-- Outer Row -->
+          <div class="row justify-content-center">
+      
+            <div class="col-xl-10 col-lg-12 col-md-9">
+      
+              <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                  <!-- Nested Row within Card Body -->
+                  <div class="row">
+                   
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                          <div>
+                            <h1 class="h4 text-gray-900 mb-4">TEKNE KAYIT DÜZENLEME</h1>
+                          </div>
+                          <form action="/boatRegRoutes/boats/{{postBoatRegData._id}}?_method=PUT" method="POST" id="boatTypeDef">
+                        
+                            <div class="form-group">
+                                <input type="hidden" name="_method" value="PUT">
+                                <label for="licenceNo"><b>Ruhsat no:</b></label>
+                                <input type="text" value="{{postBoatRegData.licenceNo}}" id="licenceNo" name="licenceNo" class="form-control form-control-user" >
+
+                            </div>
+                            <div class="form-group">
+                                <label for="plate"><b>Plaka:</b></label>
+                                <input type="text" value="{{postBoatRegData.plate}}"  name="plate" id="plate" class="form-control form-control-user">
+
+                            </div>
+                        
+                           <div class="form-group">
+                                <label for="boatName"><b>Tekne Adı:</b></label>
+                                <input type="text" value="{{postBoatRegData.boatName}}" name="boatName" id="boatName" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="portNameFromDb"><b>Limanı seçiniz:</b></label>
+                                    <select id="portNameFromDb" name="portNameFromDb" >
+                                        {{#each portData}}
+                                        <option value="{{province}}-{{portName}}">{{province}}-{{portName}}</option>
+                                        {{/each}}
+                                   </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bindingNo"><b>Bağlama No: </b></label>
+                                <input type="text"  value="{{postBoatRegData.bindingNo}}" name="bindingNo" id="bindingNo" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="boatTypeFromDb"><b>Tekne Cinsi: </b></label>
+                                    <select id="boatTypeFromDb" name="boatTypeFromDb" >
+                                        {{#each boatTypeData}}
+                                        <option value="{{description}}">{{description}}</option>
+                                        {{/each}}
+                                   </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="boatSize"><b>Boy-En:  </b></label>
+                                <input type="text"  value="{{postBoatRegData.boatSize}}"  name="boatSize" id="boatSize" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="boatEngineFromDb"><b>Tekne motoru: </b></label>
+                                    <select id="boatEngineFromDb" name="boatEngineFromDb" >
+                                        {{#each boatEngineData}}
+                                        <option value="{{brand}}-{{model}}">{{brand}}-{{model}}</option>
+                                        {{/each}}
+                                   </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="boatHpFromDb"><b>Motor Beygir Gücü(hp): </b></label>
+                                    <select id="boatHpFromDb" name="boatHpFromDb" >
+                                       {{#each boatEngineData}}
+                                       <option value="{{hp}}">{{hp}}</option>
+                                       {{/each}}
+                                   </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="ownerName"><b>Donatan Ad: </b></label>
+                                <input type="text"  value="{{postBoatRegData.ownerName}}" name="ownerName" id="ownerName" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="ownerSurname"><b>Donatan Soyadı: </b></label>
+                                <input type="text" value="{{postBoatRegData.ownerSurname}}" name="ownerSurname" id="ownerSurname" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="ownerBirth"><b>Donatan Doğum Tarihi: </b></label>
+                                <input type="date"  value="{{postBoatRegData.ownerBirth}}"  name="ownerBirth" id="ownerBirth" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="ownerId"><b>Donatan TC:</b></label>
+                                <input type="text"  value="{{postBoatRegData.ownerId}}" name="ownerId" id="ownerId" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="ownerAddress"><b>Donatan Adresi: </b></label>
+                                <input type="text" value="{{postBoatRegData.ownerAddress}}" name="ownerAddress" id="ownerAddress" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="ownerPhoneNum"><b>Donatan Telefonu: </b></label>
+                                <input type="text"  value="{{postBoatRegData.ownerPhoneNum}}" name="ownerPhoneNum" id="ownerPhoneNum" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="groundInspectionDate"><b>Muayene Tarihi(KARA):</b></label>
+                                <input type="date" value="{{postBoatRegData.groundInspectionDate}}" name="groundInspectionDate" id="groundInspectionDate" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="inspectionAttendant"><b>Muayene Personeli: </b></label>
+                                <input type="text"  value="{{postBoatRegData.inspectionAttendant}}" name="inspectionAttendant" id="inspectionAttendant" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="suitableForSea"><b>Denize elverişli mi: </b></label>
+                                    <select id="suitableForSea" name="suitableForSea" >
+                                      <option value="uygun">Evet</option>
+                                      <option value="uygunDeğil">Hayır</option>
+                                   </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="seaInspectionDate"><b>Muayene Tarihi(SU ÜSTÜ): </b></label>
+                                <input type="date"  value="{{postBoatRegData.seaInspectionDate}}"  name="seaInspectionDate" id="seaInspectionDate" class="form-control form-control-user">
+                            </div>
+                            <div class="form-group">
+                                <label for="blueCard"><b>Mavi Kart: </b></label>
+                                    <select id="blueCard" name="blueCard" >
+                                      <option value="evet">Evet</option>
+                                      <option value="hayır">Hayır</option>
+                                   </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inspectionValidityDate"><b>Muayene Geçerlilik Tarihi:</b></label>
+                                <input type="date"  value="{{postBoatRegData.inspectionValidityDate}}"  name="inspectionValidityDate" id="inspectionValidityDate" class="form-control form-control-user">
+                            </div>
+                            <img src="/qrcodeImages/{{postBoatRegData._id}}.png" width="500" height="500">
+                            <button type="submit" class="btn btn-primary btn-user btn-block">Kaydet</button>
+                            <hr>
+                          </form>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+      
+          </div>
+      
+        </div>
+      </div>
+      <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+</html>
